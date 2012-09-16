@@ -1,0 +1,39 @@
+!!!
+
+%html
+  %head
+    %title Airbnb Search 
+    %link(href="src/css/app.css" rel="stylesheet")
+
+  %body
+    #search-app
+      %form#search(onsubmit="return false;")
+        %input.location(type="text")
+        %input.search-button(type="submit" value="Search")
+
+        %label(for="checkin") Check in 
+        %input.checkin(type="text")
+
+        %label(for="checkout") Check out
+        %input.checkout(type="text")
+
+        %label(for="guests") Guests
+        %input.guests(type="text")
+
+      #result
+        .count
+
+        %ol#listings
+
+    %script#listing-template(type="text/template")
+      %a(src="http://www.airbnb.com/rooms/<%= id %>")
+        %img.thumbnail(src="<%= thumbnail_url %>")
+        %h2 <%- name %> 
+        %p <%- smart_location %> 
+        .cost
+          .price <%- price_formatted %>
+
+    %script(src="lib/jquery.js")
+    %script(src="lib/underscore.js")
+    %script(src="lib/backbone.js")
+    %script(src="src/javascript/app.js")

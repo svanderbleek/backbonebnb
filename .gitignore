@@ -1,0 +1,4 @@
+.sass-cache
+app/src/javascript/*
+app/src/css/*
+app/app.html
