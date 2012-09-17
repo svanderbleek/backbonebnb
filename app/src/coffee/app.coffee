@@ -2,9 +2,11 @@ $ ->
   Listing = Backbone.Model.extend()
 
   Listings = Backbone.Collection.extend
+    model: Listing
+
     initialize: ->
       _(10).times => 
-        @add new Listing()
+        @add {} 
 
     update: (listings) ->
       for modelDataPair in _.zip(@toArray(), listings)
