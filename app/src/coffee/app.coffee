@@ -33,13 +33,12 @@ $ ->
 
     render: ->
       @subviews.each (view) -> view.render()
-
         
   ListingsCountView = Backbone.View.extend
     el: "#count"
 
     render: ->
-      @$el.html @model.listings_count
+      @$el.html @model.get "listings_count"
 
   ListingsSearch = Backbone.Model.extend
     urlRoot: "https://api.airbnb.com/v1/listings/search"
@@ -59,6 +58,7 @@ $ ->
   search.on "change:listings", ->
     @listingsCollection.update @get "listings"
     @listingsView.render()
+    @listingsCountView.render()
 
   search.on "change:listings_count", ->
     @listingsCountView.render()
@@ -73,7 +73,7 @@ $ ->
       @location = $ "#location"
 
     search: ->
-      @model.search
+      @model.search 
         location: @location.val()
 
   new ListingsSearchView model: search
