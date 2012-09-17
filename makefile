@@ -1,6 +1,6 @@
 clean:
-	rm -f app/src/javascript/*
-	rm -f app/src/css/*
+	rm -f app/src/javascript/*.js
+	rm -f app/src/css/*.css
 	rm -f app/app.html
 
 build: clean

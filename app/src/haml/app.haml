@@ -8,20 +8,20 @@
   %body
     #search-app
       %form#search(onsubmit="return false;")
-        %input.location(type="text")
-        %input.search-button(type="submit" value="Search")
+        %input#location(type="text")
+        %input#search-button(type="submit" value="Search")
 
         %label(for="checkin") Check in 
-        %input.checkin(type="text")
+        %input#checkin(type="text")
 
         %label(for="checkout") Check out
-        %input.checkout(type="text")
+        %input#checkout(type="text")
 
         %label(for="guests") Guests
-        %input.guests(type="text")
+        %input#guests(type="text")
 
       #result
-        .count
+        #count
 
         %ol#listings
 

@@ -7,17 +7,17 @@
   <body>
     <div id='search-app'>
       <form id='search' onsubmit='return false;'>
-        <input class='location' type='text' />
-        <input class='search-button' type='submit' value='Search' />
+        <input id='location' type='text' />
+        <input id='search-button' type='submit' value='Search' />
         <label for='checkin'>Check in</label>
-        <input class='checkin' type='text' />
+        <input id='checkin' type='text' />
         <label for='checkout'>Check out</label>
-        <input class='checkout' type='text' />
+        <input id='checkout' type='text' />
         <label for='guests'>Guests</label>
-        <input class='guests' type='text' />
+        <input id='guests' type='text' />
       </form>
       <div id='result'>
-        <div class='count'></div>
+        <div id='count'></div>
         <ol id='listings'></ol>
       </div>
     </div>

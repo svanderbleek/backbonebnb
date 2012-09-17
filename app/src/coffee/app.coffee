@@ -36,7 +36,7 @@ $ ->
 
         
   ListingsCountView = Backbone.View.extend
-    el: "#result .count"
+    el: "#count"
 
     render: ->
       @$el.html @model.listings_count
@@ -49,12 +49,10 @@ $ ->
       @listingsView = new ListingsView collection: @listingsCollection
       @listingsCountView = new ListingsCountView model: @ 
 
-    search: ->
+    search: (params) ->
       @fetch
         dataType: "jsonp"
-        data: 
-          key: "bcxkf89pxe8srriv8h3rj7w9t" 
-          location: "test"
+        data: _.extend(params, key: "bcxkf89pxe8srriv8h3rj7w9t")
 
   search = new ListingsSearch()
 
@@ -65,4 +63,17 @@ $ ->
   search.on "change:listings_count", ->
     @listingsCountView.render()
 
-  window.search = search
+  ListingsSearchView = Backbone.View.extend
+    el: "#search"
+
+    events:
+      "click #search-button": "search"
+
+    initialize: ->
+      @location = $ "#location"
+
+    search: ->
+      @model.search
+        location: @location.val()
+
+  new ListingsSearchView model: search
